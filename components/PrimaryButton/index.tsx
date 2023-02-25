@@ -1,9 +1,17 @@
-import { Text, TextProps, View, Pressable, StyleSheet } from "react-native";
+import { ReactNode } from "react";
+import {
+  Text,
+  View,
+  Pressable,
+  StyleSheet,
+  PressableProps,
+  GestureResponderEvent,
+} from "react-native";
 
-function PrimaryButton({ children }: TextProps) {
-  const pressHandler = () => {
-    console.log("Pressed!");
-  };
+interface PrimaryButtonProps extends PressableProps {
+  children: ReactNode;
+}
+function PrimaryButton({ children, onPress }: PrimaryButtonProps) {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
@@ -12,7 +20,7 @@ function PrimaryButton({ children }: TextProps) {
             ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer
         }
-        onPress={pressHandler}
+        onPress={onPress}
         android_ripple={{ color: "#640233" }}
       >
         <Text style={styles.buttonText}>{children}</Text>
