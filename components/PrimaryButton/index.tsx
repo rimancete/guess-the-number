@@ -5,9 +5,10 @@ import {
   Pressable,
   StyleSheet,
   PressableProps,
-  GestureResponderEvent,
 } from "react-native";
+import { Colors } from "../../helpers";
 
+const { primary500, primary600 } = Colors;
 interface PrimaryButtonProps extends PressableProps {
   children: ReactNode;
 }
@@ -21,7 +22,7 @@ function PrimaryButton({ children, onPress }: PrimaryButtonProps) {
             : styles.buttonInnerContainer
         }
         onPress={onPress}
-        android_ripple={{ color: "#640233" }}
+        android_ripple={{ color: primary600 }}
       >
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   buttonInnerContainer: {
-    backgroundColor: "#72063c",
+    backgroundColor: primary500,
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation: 2,

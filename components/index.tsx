@@ -1,3 +1,4 @@
 import PrimaryButton from "./PrimaryButton";
+import PageTitle from "./PageTitle";
 
-export { PrimaryButton };
+export { PrimaryButton, PageTitle };

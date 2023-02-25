@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { StyleSheet, TextInput, View, Alert } from "react-native";
-import { PrimaryButton } from "../components";
+
+import { PrimaryButton } from "../../components";
+import { Colors } from "../../helpers";
+
+const { primary900, secondary500 } = Colors;
 
 interface StartGameScreenProps {
   onPickNumber: (chosenNumber: number) => void;
@@ -55,7 +59,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginHorizontal: 24,
     padding: 16,
-    backgroundColor: "#3b021f",
+    backgroundColor: primary900,
     borderRadius: 8,
     elevation: 8, // box-shadow CSS equivalent on Android
 
@@ -69,9 +73,9 @@ const styles = StyleSheet.create({
     height: 50,
     width: 45,
     fontSize: 32,
-    borderBottomColor: "#ddb52f",
+    borderBottomColor: secondary500,
     borderBottomWidth: 2,
-    color: "#ddb52f",
+    color: secondary500,
     marginVertical: 8,
     fontWeight: "bold",
     textAlign: "center",
