@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
 
-function Controls() {
+function LogRoundsContainer() {
   return (
       <View>
-        <Text>Higher or lower?</Text>
+        <Text>Log rounds</Text>
         {/* + / - buttons */}
       </View>
   );
 }
 
-export default Controls;
+export default LogRoundsContainer;

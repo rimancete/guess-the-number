@@ -1,12 +1,7 @@
-import {
-  Text,
-  StyleSheet,
-} from "react-native";
+import { Text, StyleSheet } from "react-native";
 import { Colors } from "../../helpers";
 
-const { secondary500 } = Colors;
-
-
+const { light500 } = Colors;
 interface PageTitleProps {
   title: string;
 }
@@ -20,10 +15,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: secondary500,
+    color: light500,
     textAlign: "center",
     borderWidth: 2,
-    borderColor: secondary500,
+    borderColor: light500,
     borderRadius: 6,
     padding: 12,
   },
