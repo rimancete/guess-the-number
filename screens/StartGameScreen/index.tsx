@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
+    fontFamily: 'open-sans-bold',
     height: 50,
     width: 45,
     fontSize: 32,
@@ -76,7 +77,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     color: secondary500,
     marginVertical: 8,
-    fontWeight: "bold",
     textAlign: "center",
   },
   buttonsContainer: {

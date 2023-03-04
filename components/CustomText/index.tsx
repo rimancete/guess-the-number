@@ -15,6 +15,7 @@ export default CustomText;
 
 const styles = StyleSheet.create({
   text: {
+    fontFamily: 'open-sans-bold',
     color: secondary500,
     fontSize: 24,
   },
