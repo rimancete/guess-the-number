@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import { PageTitle } from "../../components";
 import ControlsContainer from "./components/ControlsContainer";
@@ -22,9 +22,10 @@ let maxBoundary = 100;
 
 interface GameScreenProps {
   pickedNumber: number;
+  onGameOver: () => void;
 }
 
-function GameScreen({ pickedNumber }: GameScreenProps) {
+function GameScreen({ pickedNumber, onGameOver }: GameScreenProps) {
   const initialGuess = generateRandomBetween(
     minBoundary,
     maxBoundary,
@@ -37,7 +38,7 @@ function GameScreen({ pickedNumber }: GameScreenProps) {
       (direction === "lower" && currentGuess < pickedNumber) ||
       (direction === "greater" && currentGuess > pickedNumber)
     ) {
-      Alert.alert("Dont't lit!", "You know that this is wrong...", [
+      Alert.alert("Dont't lie!", "You know that this is wrong...", [
         { text: "Sorry!", style: "cancel" },
       ]);
       return;
@@ -55,6 +56,12 @@ function GameScreen({ pickedNumber }: GameScreenProps) {
     );
     setCurrentGuess(newRandomNumber);
   };
+
+  useEffect(() => {
+    if (currentGuess === pickedNumber) {
+      onGameOver();
+    }
+  }, [currentGuess, pickedNumber, onGameOver]);
 
   return (
     <View style={styles.gameScreenContainer}>

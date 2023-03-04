@@ -1,6 +1,10 @@
-import { StyleSheet, Text, View } from "react-native";
-import { PrimaryButton } from "../../../components";
+import { StyleSheet, View } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { CustomText, PrimaryButton } from "../../../components";
+import CardBox from "../../../components/CardBox";
+import { Colors } from "../../../helpers";
 
+const { light500 } = Colors;
 interface ControlsContainerProps {
   onNextGuess: (direction: "greater" | "lower") => void;
 }
@@ -11,13 +15,17 @@ function ControlsContainer({ onNextGuess }: ControlsContainerProps) {
   };
 
   return (
-    <View>
-      <Text>Higher or lower?</Text>
+    <CardBox>
+      <CustomText>Higher or Lower?</CustomText>
       <View style={styles.buttonsContainer}>
-        <PrimaryButton onPress={() => onNextGuessHandler("greater")}>+</PrimaryButton>
-        <PrimaryButton onPress={() => onNextGuessHandler("lower")}>-</PrimaryButton>
+        <PrimaryButton onPress={() => onNextGuessHandler("greater")}>
+          <Ionicons name="md-add" size={24} style={styles.icon} />
+        </PrimaryButton>
+        <PrimaryButton onPress={() => onNextGuessHandler("lower")}>
+          <Ionicons name="md-remove" size={24} style={styles.icon} />
+        </PrimaryButton>
       </View>
-    </View>
+    </CardBox>
   );
 }
 
@@ -26,5 +34,9 @@ export default ControlsContainer;
 const styles = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
+    marginTop: 24,
   },
-})
+  icon: {
+    color: light500,
+  },
+});

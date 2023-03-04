@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Colors } from "../../helpers";
 
-const { primary500, primary600 } = Colors;
+const { primary500, primary600, light500 } = Colors;
 interface PrimaryButtonProps extends PressableProps {
   children: ReactNode;
 }
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonText: {
-    color: "white",
+    color: light500,
     textAlign: "center",
   },
   pressed: {

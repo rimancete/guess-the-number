@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { StyleSheet, TextInput, View, Alert } from "react-native";
 
-import { PrimaryButton } from "../../components";
+import {
+  CardBox,
+  CustomText,
+  PageTitle,
+  PrimaryButton,
+} from "../../components";
 import { Colors } from "../../helpers";
 
 const { primary900, secondary500 } = Colors;
@@ -33,20 +38,24 @@ function StartGameScreen({ onPickNumber }: StartGameScreenProps) {
     onPickNumber(chosenNumber);
   };
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.input}
-        maxLength={2}
-        keyboardType="number-pad"
-        autoCapitalize="none"
-        autoCorrect={false}
-        value={enteredNumber}
-        onChangeText={numberInputHandler}
-      />
-      <View style={styles.buttonsContainer}>
-        <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
-        <PrimaryButton onPress={confirmButtonHandler}>Confirm</PrimaryButton>
-      </View>
+    <View style={styles.rootContainer}>
+      <PageTitle title="Guess My Number" />
+      <CardBox>
+        <CustomText>Enter a Number</CustomText>
+        <TextInput
+          style={styles.input}
+          maxLength={2}
+          keyboardType="number-pad"
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={enteredNumber}
+          onChangeText={numberInputHandler}
+        />
+        <View style={styles.buttonsContainer}>
+          <PrimaryButton onPress={resetInputHandler}>Reset</PrimaryButton>
+          <PrimaryButton onPress={confirmButtonHandler}>Confirm</PrimaryButton>
+        </View>
+      </CardBox>
     </View>
   );
 }
@@ -54,20 +63,10 @@ function StartGameScreen({ onPickNumber }: StartGameScreenProps) {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-  inputContainer: {
+  rootContainer: {
+    flex: 1,
+    marginTop: 50,
     alignItems: "center",
-    marginTop: 100,
-    marginHorizontal: 24,
-    padding: 16,
-    backgroundColor: primary900,
-    borderRadius: 8,
-    elevation: 8, // box-shadow CSS equivalent on Android
-
-    // iOS shadow properties
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    shadowOpacity: 0.25,
   },
   input: {
     height: 50,
