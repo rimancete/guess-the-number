@@ -1,12 +1,12 @@
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, TextProps } from "react-native";
 import { Colors } from "../../helpers";
 
 const { light500 } = Colors;
-interface PageTitleProps {
+interface PageTitleProps extends TextProps {
   title: string;
 }
-function PageTitle({ title }: PageTitleProps) {
-  return <Text style={styles.title}>{title}</Text>;
+function PageTitle({ title, style }: PageTitleProps) {
+  return <Text style={[styles.title, style]}>{title}</Text>;
 }
 
 export default PageTitle;
