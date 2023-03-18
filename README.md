@@ -43,6 +43,3 @@ Como o projeto é acadêmico, o foco realmente foi esse. Tendo isso em mente, se
   - Implementar linters no projeto
   - Componentizar a listagem de rounds
   - Utilizar melhores técnicas de navegação entre telas.
-
-- Funcionalidade (bug)
-  - Em algumas situações, o app quebra quando o número é encontrado.

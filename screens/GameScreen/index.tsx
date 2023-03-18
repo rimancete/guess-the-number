@@ -28,8 +28,8 @@ interface GameScreenProps {
 
 function GameScreen({ pickedNumber, onGameOver }: GameScreenProps) {
   const initialGuess = generateRandomBetween(
-    minBoundary,
-    maxBoundary,
+    1,
+    100,
     pickedNumber
   );
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
