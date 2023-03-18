@@ -1,16 +1,21 @@
 import { Image, StyleSheet, Text, View } from "react-native";
+
 import { PageTitle, PrimaryButton } from "../../components";
 import { Colors } from "../../helpers";
 
 const { primary900, primary500 } = Colors;
 
 interface GameOverScreenProps {
-  roundsNumber: number,
-  userNumber: number,
+  roundsNumber: number;
+  userNumber: number;
   onStartNewGame: () => void;
 }
 
-function GameOverScreen({roundsNumber, userNumber, onStartNewGame}: GameOverScreenProps) {
+function GameOverScreen({
+  roundsNumber,
+  userNumber,
+  onStartNewGame,
+}: GameOverScreenProps) {
   return (
     <View style={styles.gameOverScreenContainer}>
       <PageTitle title="GAME OVER" />
@@ -21,8 +26,9 @@ function GameOverScreen({roundsNumber, userNumber, onStartNewGame}: GameOverScre
         />
       </View>
       <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlightText}>{roundsNumber}</Text> rounds to
-        guess the number <Text style={styles.highlightText}>{userNumber}</Text>
+        Your phone needed{" "}
+        <Text style={styles.highlightText}>{roundsNumber}</Text> rounds to guess
+        the number <Text style={styles.highlightText}>{userNumber}</Text>
       </Text>
       <View style={styles.buttonContainer}>
         <PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>

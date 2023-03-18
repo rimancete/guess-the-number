@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
+
 import { Colors } from "../../../helpers";
 
 const { secondary500 } = Colors;
@@ -27,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   numberText: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
     color: secondary500,
     fontSize: 36,
   },

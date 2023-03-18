@@ -1,8 +1,9 @@
 import { StyleSheet, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
+import { Colors } from "../../../helpers";
 import { CustomText, PrimaryButton } from "../../../components";
 import CardBox from "../../../components/CardBox";
-import { Colors } from "../../../helpers";
 
 const { light500 } = Colors;
 interface ControlsContainerProps {

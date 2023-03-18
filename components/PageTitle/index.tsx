@@ -1,4 +1,5 @@
 import { Text, StyleSheet, TextProps } from "react-native";
+
 import { Colors } from "../../helpers";
 
 const { light500 } = Colors;
@@ -13,7 +14,7 @@ export default PageTitle;
 
 const styles = StyleSheet.create({
   title: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
     fontSize: 24,
     color: light500,
     textAlign: "center",

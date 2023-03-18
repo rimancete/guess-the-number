@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { StyleSheet, View, ViewProps } from "react-native";
+
 import { Colors } from "../../helpers";
 
 const { primary900 } = Colors;

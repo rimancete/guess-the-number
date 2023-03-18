@@ -4,10 +4,9 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
+import { Colors } from "./helpers";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
-import { Colors } from "./helpers";
-
 import GameOverScreen from "./screens/GameOverScreen";
 
 SplashScreen.preventAutoHideAsync();
@@ -40,7 +39,7 @@ export default function App() {
 
   const gameOverHandler = (numberOfRounds: number) => {
     setGameIsOver(true);
-    setGuessRounds(numberOfRounds)
+    setGuessRounds(numberOfRounds);
   };
 
   const startNewGameHandler = () => {

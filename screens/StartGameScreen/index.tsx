@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { StyleSheet, TextInput, View, Alert } from "react-native";
 
+import { Colors } from "../../helpers";
 import {
   CardBox,
   CustomText,
   PageTitle,
   PrimaryButton,
 } from "../../components";
-import { Colors } from "../../helpers";
 
-const { primary900, secondary500 } = Colors;
+const { secondary500 } = Colors;
 
 interface StartGameScreenProps {
   onPickNumber: (chosenNumber: number) => void;
@@ -18,7 +18,7 @@ function StartGameScreen({ onPickNumber }: StartGameScreenProps) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   const numberInputHandler = (enteredText: string) => {
-    const numberValue = enteredText.replace(/[^\d]/g, "")
+    const numberValue = enteredText.replace(/[^\d]/g, "");
     setEnteredNumber(numberValue);
   };
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
     height: 50,
     width: 45,
     fontSize: 32,

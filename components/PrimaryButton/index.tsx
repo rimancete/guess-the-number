@@ -6,6 +6,7 @@ import {
   StyleSheet,
   PressableProps,
 } from "react-native";
+
 import { Colors } from "../../helpers";
 
 const { primary500, primary600, light500 } = Colors;
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonText: {
-    fontFamily: 'open-sans',
+    fontFamily: "open-sans",
     color: light500,
     textAlign: "center",
   },

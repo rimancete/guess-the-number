@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { StyleSheet, Text, TextProps } from "react-native";
+
 import { Colors } from "../../helpers";
 
 const { secondary500 } = Colors;
@@ -15,7 +16,7 @@ export default CustomText;
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
     color: secondary500,
     fontSize: 24,
   },
