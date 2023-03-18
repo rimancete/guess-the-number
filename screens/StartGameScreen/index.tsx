@@ -18,7 +18,8 @@ function StartGameScreen({ onPickNumber }: StartGameScreenProps) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   const numberInputHandler = (enteredText: string) => {
-    setEnteredNumber(enteredText);
+    const numberValue = enteredText.replace(/[^\d]/g, "")
+    setEnteredNumber(numberValue);
   };
 
   const resetInputHandler = () => {

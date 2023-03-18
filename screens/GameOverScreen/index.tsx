@@ -4,7 +4,13 @@ import { Colors } from "../../helpers";
 
 const { primary900, primary500 } = Colors;
 
-function GameOverScreen() {
+interface GameOverScreenProps {
+  roundsNumber: number,
+  userNumber: number,
+  onStartNewGame: () => void;
+}
+
+function GameOverScreen({roundsNumber, userNumber, onStartNewGame}: GameOverScreenProps) {
   return (
     <View style={styles.gameOverScreenContainer}>
       <PageTitle title="GAME OVER" />
@@ -15,11 +21,11 @@ function GameOverScreen() {
         />
       </View>
       <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlightText}>X</Text> rounds to
-        guess the number <Text style={styles.highlightText}>Y</Text>
+        Your phone needed <Text style={styles.highlightText}>{roundsNumber}</Text> rounds to
+        guess the number <Text style={styles.highlightText}>{userNumber}</Text>
       </Text>
       <View style={styles.buttonContainer}>
-        <PrimaryButton>Start New Game</PrimaryButton>
+        <PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>
       </View>
     </View>
   );

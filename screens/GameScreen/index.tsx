@@ -3,7 +3,7 @@ import { StyleSheet, View, Alert } from "react-native";
 import { PageTitle } from "../../components";
 import ControlsContainer from "./components/ControlsContainer";
 import GuessContainer from "./components/GuessContainer";
-import LogRoundsContainer from "./components/LogRoundsContainer";
+import LogRounds from "./components/LogRounds";
 
 const generateRandomBetween = (
   min: number,
@@ -22,7 +22,7 @@ let maxBoundary = 100;
 
 interface GameScreenProps {
   pickedNumber: number;
-  onGameOver: () => void;
+  onGameOver: (guessRounds: number) => void;
 }
 
 function GameScreen({ pickedNumber, onGameOver }: GameScreenProps) {
@@ -32,6 +32,7 @@ function GameScreen({ pickedNumber, onGameOver }: GameScreenProps) {
     pickedNumber
   );
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+  const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
   const nextGuessHandler = (direction: "lower" | "greater") => {
     if (
@@ -55,13 +56,24 @@ function GameScreen({ pickedNumber, onGameOver }: GameScreenProps) {
       currentGuess
     );
     setCurrentGuess(newRandomNumber);
+    setGuessRounds((previusGuessRounds) => [
+      newRandomNumber,
+      ...previusGuessRounds,
+    ]);
   };
+
+  const guessRoundsListLength = guessRounds.length;
 
   useEffect(() => {
     if (currentGuess === pickedNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
   }, [currentGuess, pickedNumber, onGameOver]);
+
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []);
 
   return (
     <View style={styles.gameScreenContainer}>
@@ -71,7 +83,10 @@ function GameScreen({ pickedNumber, onGameOver }: GameScreenProps) {
 
       <ControlsContainer onNextGuess={nextGuessHandler} />
 
-      <LogRoundsContainer />
+      <LogRounds
+        guessRounds={guessRounds}
+        guessRoundsListLength={guessRoundsListLength}
+      />
     </View>
   );
 }
